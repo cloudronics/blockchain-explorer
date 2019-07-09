@@ -6,7 +6,7 @@
         "client-1": {
           "tlsEnable": true,
           "organization": "Org2",
-          "channel": "mychannel",
+          "channel": "allarewelcome",
           "credentialStore": {
             "path": "./tmp/credentialStore_Org2/credential",
             "cryptoStore": {
@@ -16,7 +16,7 @@
         }
       },
       "channels": {
-        "mychannel": {
+        "allarewelcome": {
           "peers": {
             "peer0.org1.example.com": {},
             "peer1.org1.example.com": {},
@@ -114,7 +114,7 @@
       },
       "certificateAuthorities": {
         "ca-org1": {
-          "url": "https://ca.org1.example.com:7054",
+          "url": "https://ca.example.com:7054",
           "httpOptions": {
             "verify": false
           },
@@ -124,12 +124,12 @@
           "caName": "ca-org1"
         },
         "ca-org2": {
-          "url": "https://ca.org2.example.com:7054",
+          "url": "https://ca.example.com:7054",
           "httpOptions": {
             "verify": false
           },
           "tlsCACerts": {
-            "path": "/tmp/crypto/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem"
+            "path": "/tmp/crypto/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem"
           },
           "caName": "ca-org2"
         }
