@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"license": "Apache-2.0",
 	"client": {
-		"tlsEnable": true,
+		"tlsEnable": false,
 		"adminUser": "admin",
 		"adminPassword": "adminpw",
 		"enableAuthentication": false,
@@ -18,7 +18,7 @@
 		}
 	},
 	"channels": {
-		"mychannel": {
+		"allarewelcome": {
 			"peers": {
 				"peer0.org1.example.com": {}
 			},
@@ -38,7 +38,7 @@
 			"mspid": "Org1MSP",
 			"fullpath": true,
 			"adminPrivateKey": {
-				"path": "/fabric-path/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/9b5e1e91c5e7ca0c0e83799586e729d027e4c1275f079b6c59584f50c7df1faa_sk"
+				"path": "/fabric-path/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/fc9d44f0d7e6a2529f99cfc2fc331ce2cc48eece9e452ce64720a41aa72b50dd_sk"
 			},
 			"signedCert": {
 				"path": "/fabric-path/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
@@ -50,8 +50,8 @@
 			"tlsCACerts": {
 				"path": "/fabric-path/first-network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
 			},
-			"url": "grpcs://localhost:7051",
-			"eventUrl": "grpcs://localhost:7053",
+			"url": "grpcs://peer0.org1.example.com:7051",
+			"eventUrl": "grpcs://peer0.org1.example.com:7053",
 			"grpcOptions": {
 				"ssl-target-name-override": "peer0.org1.example.com"
 			}
