@@ -6,6 +6,7 @@ volumes:
   credentialstore:
   grafana-storage:
   prometheus-storage:
+  app-logs:
 
 networks:
   mynetwork.com:
@@ -15,7 +16,7 @@ networks:
 services:
 
   explorerdb.mynetwork.com:
-    image: hyperledger/explorer-db:latest
+    image: hyperledger/explorer-db:0.3.9.4
     container_name: explorerdb.mynetwork.com
     hostname: explorerdb.mynetwork.com
     environment:
@@ -29,18 +30,19 @@ services:
       - mynetwork.com
 
   explorer.mynetwork.com:
-    image: hyperledger/explorer:latest
+    image: hyperledger/explorer:0.3.9.4
     container_name: explorer.mynetwork.com
     hostname: explorer.mynetwork.com
     environment:
       - DATABASE_HOST=explorerdb.mynetwork.com
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWD=password
-      - DISCOVERY_AS_LOCALHOST=false
+      - ENROLL_ID=hlbeuser
     volumes:
-      - ./examples/net1/config.json:/opt/explorer/app/platform/fabric/config.json
+      - ./examples/net1/configorg1.json:/opt/explorer/app/platform/fabric/config.json
       - /home/ubuntu/Desktop/fabric-samples/startFiles/crypto-config:/tmp/crypto
       - credentialstore:/opt/tmp
+      - app-logs:/opt/explorer/logs
     command: sh -c "sleep 16&& node /opt/explorer/main.js && tail -f /dev/null"
     ports:
       - 8090:8080

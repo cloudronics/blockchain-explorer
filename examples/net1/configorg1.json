@@ -2,6 +2,7 @@
   "network-configs": {
     "network-1": {
       "version": "1.0",
+      "name": "network-1",
       "clients": {
         "client-1": {
           "tlsEnable": false,
